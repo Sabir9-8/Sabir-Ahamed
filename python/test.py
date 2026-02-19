@@ -1,28 +1,18 @@
-import os
-import math   # unused import (LINTING ERROR)
+# Test inputs
+base_score = 100
+commits = 27          # > 20 → penalty should trigger
+build_time = 3.5      # < 5 minutes → speed bonus applies
 
+# Expected calculations
+speed_bonus = 10 if build_time < 5 else 0
+efficiency_penalty = -2 * max(0, commits - 20)
 
-def calculate_sum(n)
-    total = 0
+final_score = base_score + speed_bonus + efficiency_penalty
 
-    for i in range(n):
-        total += i+1   # LOGIC ERROR (off-by-one)
-
-     print("Total:", total)   # INDENTATION ERROR
-
-
-def check_even(n):
-    if n = 2:   # SYNTAX ERROR (assignment instead of comparison)
-        return True
-    else:
-        return False
-
-
-def type_problem():
-    num = 10
-    return num + "5"   # TYPE ERROR
-
-
-calculate_sum(5)
-print(check_even(2))
-print(type_problem())
+print("=== TEST CASE ===")
+print(f"Base Score: {base_score}")
+print(f"Commits: {commits}")
+print(f"Build Time: {build_time} minutes")
+print(f"Speed Bonus: {speed_bonus}")
+print(f"Efficiency Penalty: {efficiency_penalty}")
+print(f"Final Score: {final_score}")
